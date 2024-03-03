@@ -1,0 +1,3 @@
+[submodule "SecretMessagingBackEnd"]
+	path = SecretMessagingBackEnd
+	url = https://github.com/GeorgiiKrikun/SecretMessagingBackEnd
