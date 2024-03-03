@@ -5,7 +5,7 @@ services:
       context: .
       dockerfile: BackendBuilder.Dockerfile
     volumes:
-      - ../SecretMessagingBackEnd:/source
+      - ./SecretMessagingBackEnd:/source
       - ./output/:/build
     working_dir: /output
     command: bash -c "emcmake cmake -S /source -B /build && cd /build && make && chown -R 1000:1000 /build"
