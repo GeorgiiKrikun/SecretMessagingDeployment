@@ -1,3 +1,6 @@
 [submodule "SecretMessagingBackEnd"]
 	path = BackendBuilder/SecretMessagingBackEnd
 	url = https://github.com/GeorgiiKrikun/SecretMessagingBackEnd
+[submodule "DjangoBuilder/SecretMessaging"]
+	path = DjangoBuilder/SecretMessaging
+	url = https://github.com/GeorgiiKrikun/SecretMessaging

@@ -1,0 +1,38 @@
+version: '3'
+services:
+  collect-static:
+    build: 
+      context: ./SecretMessaging
+      dockerfile: ../DjangoBuilder.Dockerfile
+    image: secret-messaging:latest
+    container_name: secret-messaging-collect-static
+    volumes: 
+      - SecretMessagingCommonFiles:/app/secret_messaging/static/secret_messaging/external
+      - SecretMessagingStaticFiles:/app/static/
+    working_dir: /app
+    command: ["python3", "manage.py", "collectstatic", "--noinput"]
+  dev:
+    build: 
+      context: ./SecretMessaging
+      dockerfile: ../DjangoBuilder.Dockerfile
+    image: secret-messaging:latest
+    container_name: secret-messaging-dev
+    hostname: app
+    volumes: 
+      - SecretMessagingCommonFiles:/app/secret_messaging/static/secret_messaging/external
+    working_dir: /app
+    environment:
+      PYTHONPATH: /app
+    command: ["python3", "-m", "uvicorn", "home.asgi:application", "--port", "8000", "--reload", "--host", "0.0.0.0"]
+    networks:
+      - proxynetwork
+networks:
+  proxynetwork:
+    external: true
+volumes:
+  SecretMessagingCommonFiles:
+    external: true
+  SecretMessagingStaticFiles:
+    external: true
+      
+  

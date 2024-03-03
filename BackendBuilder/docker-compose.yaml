@@ -6,6 +6,10 @@ services:
       dockerfile: BackendBuilder.Dockerfile
     volumes:
       - ./SecretMessagingBackEnd:/source
-      - ./output/:/build
-    working_dir: /output
-    command: bash -c "emcmake cmake -S /source -B /build && cd /build && make && chown -R 1000:1000 /build"
+      - ./build/:/build
+      - SecretMessagingCommonFiles:/output
+    command: bash -c "emcmake cmake -S /source -B /build && cd /build && make && chown -R 1000:1000 /build \
+      && cp /build/SecretMessagingBackEnd.* /output"
+volumes:
+  SecretMessagingCommonFiles:
+    external: true
