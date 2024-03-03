@@ -1,0 +1,11 @@
+version: '3'
+services:
+  wasm-builder:
+    build:
+      context: .
+      dockerfile: BackendBuilder.Dockerfile
+    volumes:
+      - ../SecretMessagingBackEnd:/source
+      - ./output/:/build
+    working_dir: /output
+    command: bash -c "emcmake cmake -S /source -B /build && cd /build && make && chown -R 1000:1000 /build"
