@@ -23,6 +23,7 @@ services:
     working_dir: /app
     environment:
       PYTHONPATH: /app
+      ALLOWED_HOSTS: "34.107.92.81;pleasehide.it"
     command: ["python3", "-m", "uvicorn", "home.asgi:application", "--port", "8000", "--reload", "--host", "0.0.0.0"]
     networks:
       - proxynetwork
