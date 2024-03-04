@@ -7,6 +7,7 @@ services:
     image: secret-messaging:latest
     container_name: secret-messaging-collect-static
     volumes: 
+      - ./SecretMessaging/home:/app/
       - SecretMessagingCommonFiles:/app/secret_messaging/static/secret_messaging/external
       - SecretMessagingStaticFiles:/app/static/
     working_dir: /app
@@ -19,6 +20,7 @@ services:
     container_name: secret-messaging-dev
     hostname: app
     volumes: 
+      - ./SecretMessaging/home:/app/
       - SecretMessagingCommonFiles:/app/secret_messaging/static/secret_messaging/external
     working_dir: /app
     environment:
