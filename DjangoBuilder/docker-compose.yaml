@@ -25,7 +25,27 @@ services:
     working_dir: /app
     environment:
       PYTHONPATH: /app
-      ALLOWED_HOSTS: "34.107.92.81;pleasehide.it"
+      ALLOWED_HOSTS: "pleasehide.it"
+      SECRET_KEY: "django-insecure-p_lyy7gv&4l!z#$(dam_3m^yhk-hc)=eal8nug#_-es9&s&p$^"
+      DEBUG: "True"
+    command: ["python3", "-m", "uvicorn", "home.asgi:application", "--port", "8000", "--reload", "--host", "0.0.0.0"]
+    networks:
+      - proxynetwork
+  prod:
+    build: 
+      context: ./SecretMessaging
+      dockerfile: ../DjangoBuilder.Dockerfile
+    image: secret-messaging:latest
+    container_name: secret-messaging-dev
+    hostname: app
+    volumes: 
+      - ./SecretMessaging/home:/app/
+      - SecretMessagingCommonFiles:/app/secret_messaging/static/secret_messaging/external
+    working_dir: /app
+    environment:
+      PYTHONPATH: /app
+      ALLOWED_HOSTS: "pleasehide.it"
+      SECRET_KEY: ${SECRET_KEY}
     command: ["python3", "-m", "uvicorn", "home.asgi:application", "--port", "8000", "--reload", "--host", "0.0.0.0"]
     networks:
       - proxynetwork
