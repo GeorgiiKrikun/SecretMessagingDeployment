@@ -11,7 +11,7 @@ It consists of two submodules:
 ### Example
 Example: secret message resides right here.‍‌‌‍‌‌‍‌‌‌‌‌‌‍‌‌‌‌‍‍‌‍‍‌‍‌‌‍‌‍‍‌‍‍‌‍‌‍‍‌‍‌‍‌‌‍‍‌‌‌‌‌‌‍‌‌‌‌‍‌‍‍‍‌‍‍‍‍‌‍‍‌‌‌‌‌‌‍‌‌‌‌‌‍‌‍‍‌‍‌‍‌‍‍‍‌‍‍‍‌‌‍‍‌‌‌‌‌‌‍‌‌‌‌‌‍‌‍‍‌‍‌‍‌‌‍‍‌‌‌‍‌‌‍‍‌‍‍‍‌‌‍‍‌‍‌‍‌‌‍‍‌‌‌‌‍‌‍‍‌‍‍‍‍‌‍‍‌‍‍‍‌‌‍‍‌‍‍‌‌‍‍‍‌
 
-To decode it, you can use the hosted website - (pleasehide.it)[https://www.pleasehide.it]. Select "Reveal secret" and you will be able to decode the secret message.
+To decode it, you can use the hosted website - [pleasehide.it](https://www.pleasehide.it). Select "Reveal secret" and you will be able to decode the secret message.
 
 ### Deployment
 Deployment consists of:
